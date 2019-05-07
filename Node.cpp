@@ -4,7 +4,7 @@
 
 #include "Node.h"
 
-#define MAX_N_NODE 8000000
+#define MAX_N_NODE 3000000
 
 Node *Node::nodes = new Node[MAX_N_NODE];
 int Node::cur_node = 0;
@@ -35,4 +35,9 @@ Node *Node::buildRoot()
 	root.right_most_child = -1;
 	cur_node = 1;
 	return &root;
+}
+
+Node &Node::root()
+{
+	return nodes[0];
 }

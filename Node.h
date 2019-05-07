@@ -33,6 +33,7 @@ struct Node
 	static int N;	// n_column
 
 	static Node *buildRoot();
+	static Node &root();
 };
 
 #include "Node.cpp"

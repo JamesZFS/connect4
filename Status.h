@@ -9,8 +9,8 @@
 
 struct Status
 {
-	int **board;
-	int *top;
+	int **board = nullptr;
+	int *top = nullptr;
 
 	inline void bind(int **board_, int *top_)
 	{
@@ -20,12 +20,16 @@ struct Status
 
 	inline void copyFrom(const Status &other, int M, int N)
 	{
-		board = new int *[M];
-		for (int i = 0; i < M; i++) {
-			board[i] = new int[N];
+		if (!board) {
+			board = new int *[M];
+			for (int i = 0; i < M; ++i)
+				board[i] = new int[N];
+		}
+		if (!top)
+			top = new int[N];
+		for (int i = 0; i < M; ++i) {
 			memcpy(board[i], other.board[i], N * sizeof(int));
 		}
-		top = new int[N];
 		memcpy(top, other.top, N * sizeof(int));
 	}
 };
