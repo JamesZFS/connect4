@@ -24,6 +24,9 @@ extern const clock_t CLOCK_LIMIT;
 
 extern std::ofstream fout;
 
-#define debug(...) { sprintf(buffer, __VA_ARGS__); fout << buffer; fout.flush(); }
+//#define debug(...) { sprintf(buffer, __VA_ARGS__); fout << buffer; fout.flush(); }
+#define debug(...)
+#define logger(...) { sprintf(buffer, __VA_ARGS__); fout << buffer; fout.flush(); }
+#define assure(x, y) { if (!(x)) { logger(y); exit(1); } }
 
 #endif //UCT_LIBS_H

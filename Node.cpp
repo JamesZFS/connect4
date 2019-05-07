@@ -13,9 +13,9 @@ int Node::N = 0;	// n_row
 
 Node *Node::newChild(const Point &action_)
 {
-	assert(cur_node < MAX_N_NODE);
+	assure(cur_node < MAX_N_NODE, "(cur_node < MAX_N_NODE) fails");
 	auto &child = nodes[cur_node++];    // new child
-	assert(n_child < N);
+	assure(n_child < N, "(n_child < N) fails");
 	children[n_child++] = &child;
 	child.action = action_;
 	child.profit = child.n_visited = 0;
