@@ -6,10 +6,24 @@
 #define UCT_LIBS_H
 
 #include <iostream>
-#include <cstdio>
+#include <fstream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+#include <string>
 #include <cassert>
-#include <queue>
+#include <cstring>
 
-#define warn(...) std::cerr << __VA_ARGS__ << std::endl
+typedef char Buffer[256];
+
+extern Buffer buffer;
+
+extern std::string LOG_DIR;
+
+extern const clock_t CLOCK_LIMIT;
+
+extern std::ofstream fout;
+
+#define debug(...) { sprintf(buffer, __VA_ARGS__); fout << buffer; }
 
 #endif //UCT_LIBS_H

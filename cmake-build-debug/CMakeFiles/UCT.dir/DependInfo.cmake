@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/james/Test/AI/Chess/Strategy/Judge.cpp" "/Users/james/Test/AI/Chess/Strategy/cmake-build-debug/CMakeFiles/UCT.dir/Judge.cpp.o"
   "/Users/james/Test/AI/Chess/Strategy/Strategy.cpp" "/Users/james/Test/AI/Chess/Strategy/cmake-build-debug/CMakeFiles/UCT.dir/Strategy.cpp.o"
+  "/Users/james/Test/AI/Chess/Strategy/TreeNode.cpp" "/Users/james/Test/AI/Chess/Strategy/cmake-build-debug/CMakeFiles/UCT.dir/TreeNode.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

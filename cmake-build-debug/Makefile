@@ -177,6 +177,33 @@ Strategy.cpp.s:
 	$(MAKE) -f CMakeFiles/UCT.dir/build.make CMakeFiles/UCT.dir/Strategy.cpp.s
 .PHONY : Strategy.cpp.s
 
+TreeNode.o: TreeNode.cpp.o
+
+.PHONY : TreeNode.o
+
+# target to build an object file
+TreeNode.cpp.o:
+	$(MAKE) -f CMakeFiles/UCT.dir/build.make CMakeFiles/UCT.dir/TreeNode.cpp.o
+.PHONY : TreeNode.cpp.o
+
+TreeNode.i: TreeNode.cpp.i
+
+.PHONY : TreeNode.i
+
+# target to preprocess a source file
+TreeNode.cpp.i:
+	$(MAKE) -f CMakeFiles/UCT.dir/build.make CMakeFiles/UCT.dir/TreeNode.cpp.i
+.PHONY : TreeNode.cpp.i
+
+TreeNode.s: TreeNode.cpp.s
+
+.PHONY : TreeNode.s
+
+# target to generate assembly for a file
+TreeNode.cpp.s:
+	$(MAKE) -f CMakeFiles/UCT.dir/build.make CMakeFiles/UCT.dir/TreeNode.cpp.s
+.PHONY : TreeNode.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... Strategy.o"
 	@echo "... Strategy.i"
 	@echo "... Strategy.s"
+	@echo "... TreeNode.o"
+	@echo "... TreeNode.i"
+	@echo "... TreeNode.s"
 .PHONY : help
 
 

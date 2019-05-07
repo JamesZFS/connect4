@@ -1,0 +1,4 @@
+Build/
+cmake-build-debug/
+Strategy.xcodeproj/
+logs/

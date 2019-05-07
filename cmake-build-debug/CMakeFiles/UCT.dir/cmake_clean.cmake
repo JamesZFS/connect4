@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/UCT.dir/Judge.cpp.o"
   "CMakeFiles/UCT.dir/Strategy.cpp.o"
+  "CMakeFiles/UCT.dir/TreeNode.cpp.o"
   "UCT.pdb"
   "UCT"
 )

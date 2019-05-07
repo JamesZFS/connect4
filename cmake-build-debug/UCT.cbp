@@ -102,6 +102,12 @@
 		<Unit filename="/Users/james/Test/AI/Chess/Strategy/Strategy.h">
 			<Option target="UCT"/>
 		</Unit>
+		<Unit filename="/Users/james/Test/AI/Chess/Strategy/TreeNode.cpp">
+			<Option target="UCT"/>
+		</Unit>
+		<Unit filename="/Users/james/Test/AI/Chess/Strategy/TreeNode.h">
+			<Option target="UCT"/>
+		</Unit>
 		<Unit filename="/Users/james/Test/AI/Chess/Strategy/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
