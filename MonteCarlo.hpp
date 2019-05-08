@@ -20,15 +20,15 @@ class MonteCarlo
 	int height;		// tree height
 	clock_t since;        // start time
 	List<int> available_cols;
-	static const clock_t CLOCK_LIMIT = (clock_t) (2.5 * CLOCKS_PER_SEC);
+	static const clock_t CLOCK_LIMIT = (clock_t) (2.8 * CLOCKS_PER_SEC);
 
 	Node *expand(Node *v);	// try to expand v's child, if failed, return nullptr
 
-	int curProfit(Node *v);	// random simulation to get profit for current board
+	int simulate(Node *v);	// random simulation to get profit for current board
 
 	void updateAbove(Node *v, int delta);	// backup profit
 
-	inline bool curIsFinal(Node *v);	// current board with move v is at final
+	inline bool curIsFinal(int x, int y);	// current board with move v is at final
 
 	inline int curWinner(int x, int y);		// current winner, -1 - not final, 0 - tie, 1 - user, 2 - machine
 
@@ -38,14 +38,19 @@ class MonteCarlo
 
 	inline void reset();	// reset board status
 
+	void printBoard();
+
 public:
 	MonteCarlo(int M, int N, int *top_, int **board_,
 			   const int lastX, const int lastY, const int noX, const int noY) :
 			n_row(M), n_col(N), top(top_), board(board_), prev(lastX, lastY), ban(noX, noY),
 			top_cache{}, board_cache{}, player(0), height(0), since(clock())
 	{
-		memcpy(top_cache, top, n_col * sizeof(int));
-		memcpy(board_cache, board, n_row * n_col * sizeof(int));
+		for (int i = 0; i < n_col; ++i) top_cache[i] = top_[i];
+		for (int i = 0; i < n_row; ++i)
+			for (int j = 0; j < n_col; ++j) board_cache[i][j] = board_[i][j];
+//		memcpy(top_cache, top, n_col * sizeof(int));
+//		memcpy(board_cache, board, n_row * n_col * sizeof(int));
 		available_cols.reserve(12);
 	}
 
@@ -56,7 +61,7 @@ Point MonteCarlo::UCTSearch()
 {
 	Node::buildRoot();
 	Node *v, *u;
-	int delta;
+	int delta, update_cnt = 0;
 	do {
 		v = Node::root();
 		reset();
@@ -72,15 +77,18 @@ Point MonteCarlo::UCTSearch()
 				v = v->bestChild(0.8);
 				makeMove(v->x, v->y);
 			}
-		} while (!curIsFinal(v));
+		} while (!curIsFinal(v->x, v->y));
 
-		delta = curProfit(v);	// random simulation
+		delta = simulate(v);	// random simulation
 
 		updateAbove(v, delta);
 
+		++update_cnt;
 	} while (clock() - since < CLOCK_LIMIT);	// time limit
 	v = Node::root()->bestChild(0);
+	logger("\n================\n\n")
 	logger("x = %d, y = %d\n", v->x, v->y)
+	logger("update_cnt = %d\n", update_cnt)
 	logger("height = %d\n", height)
 	logger("n_node = %d\n", Node::n_node())
 	logger("ucb:\n")
@@ -90,22 +98,21 @@ Point MonteCarlo::UCTSearch()
 	return {v->x, v->y};
 }
 
-bool MonteCarlo::curIsFinal(Node *v)
+bool MonteCarlo::curIsFinal(int x, int y)
 {
-	return v->player == 2
-		   ? machineWin(v->x, v->y, n_row, n_col, board) || isTie(n_col, top)
-		   : userWin(v->x, v->y, n_row, n_col, board) || isTie(n_col, top);
+	return player == 2
+		   ? machineWin(x, y, n_row, n_col, board) || isTie(n_col, top)
+		   : userWin(x, y, n_row, n_col, board) || isTie(n_col, top);
 }
 
 void MonteCarlo::updateAbove(Node *v, int delta)
 {
-	int depth;
-	for (depth = 0; v; v=v->parent, ++depth) {
+	while (v) {
 		++v->N;
 		v->Q += delta;
 		delta = inverse(delta);
+		v = v->parent;
 	}
-	height = std::max(depth, height);
 }
 
 int MonteCarlo::inverse(int delta)
@@ -131,16 +138,18 @@ void MonteCarlo::makeMove(int x, int y)
 	if (ban.y == y && ban.x == x - 1) --top[y];	// assure no ban point above top
 }
 
-int MonteCarlo::curProfit(Node *v)
+int MonteCarlo::simulate(Node *v)
 {
+	height = std::max(height, v->depth);
 	available_cols.clear();
 	for (int y = 0; y < n_col; ++y) {
 		if (top[y] > 0) available_cols.push_back(y);
 	}
 	int player_cache = player;
-	int winner, x = v->x, y = v->y;
+	int winner, x = v->x, y = v->y, sim_cnt = 0;
 	size_t i;
 	while ((winner = curWinner(x, y)) == -1) {	// simulation continues
+		++sim_cnt;
 		i = randint(available_cols.size());
 		y = available_cols[i];	// randomly pick a move
 		x = top[y] - 1;
@@ -150,6 +159,8 @@ int MonteCarlo::curProfit(Node *v)
 			available_cols.pop_back();
 		}
 	}
+//	logger("depth = %d, sim_cnt = %d,  winner = %d\n", v->depth, sim_cnt, winner)
+//	printBoard();
 	player = player_cache;
 	return winner == player ? 2 : (winner == 0 ? 1 : 0);	// win | tie | lose
 }
@@ -157,8 +168,11 @@ int MonteCarlo::curProfit(Node *v)
 void MonteCarlo::reset()
 {
 	player = 1;
-	memcpy(top, top_cache, n_col * sizeof(int));
-	memcpy(board, board_cache, n_row * n_col * sizeof(int));
+	for (int i = 0; i < n_col; ++i) top[i] = top_cache[i];
+	for (int i = 0; i < n_row; ++i)
+		for (int j = 0; j < n_col; ++j) board[i][j] = board_cache[i][j];
+//	memcpy(top, top_cache, n_col * sizeof(int));
+//	memcpy(board, board_cache, n_row * n_col * sizeof(int));
 }
 
 int MonteCarlo::curWinner(int x, int y)
@@ -166,6 +180,31 @@ int MonteCarlo::curWinner(int x, int y)
 	return player == 2
 		   ? (machineWin(x, y, n_row, n_col, board) ? 2 : (isTie(n_col, top) ? 0 : -1))
 		   : (userWin(x, y, n_row, n_col, board) ? 1 : (isTie(n_col, top) ? 0 : -1));
+}
+
+static int __print_cnt__ = 0;
+
+void MonteCarlo::printBoard()
+{
+	if (__print_cnt__ > 100) return;
+	++__print_cnt__;
+	logger(" ")
+	for (int y = 0; y < n_col; ++y) {
+		logger("--")
+	}
+	logger("\n")
+	for (int x = 0; x < n_row; ++x) {
+		logger("| ")
+		for (int y = 0; y < n_col; ++y) {
+			logger("%c ", board[x][y] == 2 ? 'x' : board[x][y] == 1 ? 'o' : ' ')
+		}
+		logger("|\n")
+	}
+	logger(" ")
+	for (int y = 0; y < n_col; ++y) {
+		logger("--")
+	}
+	logger("\n\n")
 }
 
 
