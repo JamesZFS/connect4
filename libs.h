@@ -14,20 +14,28 @@
 #include <cassert>
 #include <cstring>
 
-typedef char Buffer[256];
+template<typename T>
+using List = std::vector<T>;
 
-extern Buffer buffer;
+char __buffer__[256];
 
-extern std::string LOG_DIR;
+inline size_t randint(size_t x)
+{
+	return rand() % x;
+}
 
-extern const clock_t CLOCK_LIMIT;
+unsigned int round_cnt = 0;
 
-extern std::ofstream fout;
+std::string LOG_DIR = "/Users/james/Test/AI/Chess/Strategy/logs/";
 
-//#define debug(...) { sprintf(buffer, __VA_ARGS__); fout << buffer; fout.flush(); }
-#define debug(...)
-#define openLogger { sprintf(buffer, "%s/round - %d.txt", LOG_DIR.data(), round_cnt); fout.open(buffer); if (!fout.is_open()) exit(1); }
-#define logger(...) { sprintf(buffer, __VA_ARGS__); fout << buffer; fout.flush(); }
+std::ofstream fout;
+
+#define openLogger { sprintf(__buffer__, "%s/round - %d.txt", LOG_DIR.data(), round_cnt); fout.open(__buffer__); if (!fout.is_open()) exit(1); }
+
+#define closeLogger { fout.close(); }
+
+#define logger(...) { sprintf(__buffer__, __VA_ARGS__); fout << __buffer__; fout.flush(); }
+
 #define assure(x, y) { if (!(x)) { logger(y); exit(1); } }
 
 #endif //UCT_LIBS_H
