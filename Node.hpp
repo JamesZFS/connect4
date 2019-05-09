@@ -57,8 +57,8 @@ Node *Node::newChild(int x, int y)
 	child.depth = this->depth + 1;
 	child.parent = this;
 	child.children.clear();
+	child.children.reserve(12);
 	this->children.push_back(&child);
-//	child.children.reserve(12);
 	return &child;
 }
 

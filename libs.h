@@ -25,11 +25,11 @@ inline size_t randint(size_t x)
 
 unsigned int round_cnt = 0;
 
-std::string LOG_DIR = "/Users/james/Test/AI/Chess/Strategy/logs/";
+std::string LOG_DIR = "/Users/james/Test/AI/Chess/Compete/logs/";
 
 std::ofstream fout;
 
-#define openLogger { sprintf(__buffer__, "%s/round - %d.txt", LOG_DIR.data(), round_cnt); fout.open(__buffer__); if (!fout.is_open()) exit(1); }
+#define openLogger { sprintf(__buffer__, "%s/move - %d.txt", LOG_DIR.data(), round_cnt); fout.open(__buffer__); if (!fout.is_open()) exit(1); }
 
 #define closeLogger { fout.close(); }
 

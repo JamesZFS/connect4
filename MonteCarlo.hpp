@@ -15,29 +15,25 @@ class MonteCarlo
 	int *top, **board;    // current top and current board
 	const Point prev;    // previous move
 	const Point ban;    // banned move
-	int player;		// current player
-	int height;		// tree height
+	int player;        // current player
+	int height;        // tree height
 	clock_t since;        // start time
 	List<int> available_cols;
 
 	static int top_cache[12], board_cache[12][12];
-	static const clock_t CLOCK_LIMIT = (clock_t) (2.0 * CLOCKS_PER_SEC);
+	static const clock_t CLOCK_LIMIT = (clock_t) (2.5 * CLOCKS_PER_SEC);
 
-	Node *expand(Node *v);	// try to expand v's child, if failed, return nullptr
+	Node *expand(Node *v);    // try to expand v's child, if failed, return nullptr
 
-	int simulate(Node *v);	// random simulation to get profit for current board
+	int simulate(Node *v);    // random simulation to get profit for current board
 
-	void updateAbove(Node *v, int delta);	// backup profit
+	void updateAbove(Node *v, int delta);    // backup profit
 
-	inline bool curIsFinal(int x, int y);	// current board with move v is at final
+	inline int curWinner(int x, int y);        // current winner, -1 - not final, 0 - tie, 1 - user, 2 - machine
 
-	inline int curWinner(int x, int y);		// current winner, -1 - not final, 0 - tie, 1 - user, 2 - machine
+	inline void makeMove(int x, int y);    // make move on current board
 
-	inline int inverse(int delta);
-
-	inline void makeMove(int x, int y);	// make move on current board
-
-	inline void reset();	// reset board status
+	inline void reset();    // reset board status
 
 	void printBoard();
 
@@ -55,7 +51,7 @@ public:
 		available_cols.reserve(12);
 	}
 
-	Point UCTSearch();	// return the best action
+	Point UCTSearch();    // return the best action
 };
 
 int MonteCarlo::top_cache[12], MonteCarlo::board_cache[12][12];
@@ -64,13 +60,12 @@ Point MonteCarlo::UCTSearch()
 {
 	Node::buildRoot();
 	Node *v, *u;
-	int delta, update_cnt = 0, winner;
-	Node *prev_update = nullptr;
-	do {
-		++update_cnt;
+	int delta, n_iter = 0, winner;
+	do {	// one iteration
+		++n_iter;
 		v = Node::root();
 		winner = -1;
-		// TreePolicy
+		// TreePolicy todo
 		do {
 			u = expand(v);
 			if (u) {    // expandable
@@ -82,32 +77,30 @@ Point MonteCarlo::UCTSearch()
 				v = v->bestChild(0.8);    // goto best child
 				makeMove(v->x, v->y);
 			}
-		} while ((winner = curWinner(v->x, v->y)) == -1);	// while game continuing
+		} while ((winner = curWinner(v->x, v->y)) == -1);    // repeat while game continuing
 
-		if (winner != -1) {	// stop at a terminal
+		if (winner != -1) {    // stop at a terminal
 			delta = winner == player ? 2 : (winner == 0 ? 1 : 0);
-			if (v->N > 100) {	// visited a terminal a number of times before
-//				assure(prev_update == v, "! should visit a same terminal before, fails.")
-				reset();				// trace back
+			if (v->N > 1000) {    // logic shortcut: visited a terminal a number of times before
+				reset();        // trace back
 				break;
 			}
 		}
 		else {
 			delta = simulate(v);    // random simulation
 		}
-		prev_update = v;
 		updateAbove(v, delta);    // backup
-		reset();				// trace back
-	} while (clock() - since < CLOCK_LIMIT);	// time limit
+		reset();                // trace back
+	} while (clock() - since < CLOCK_LIMIT);    // time limit
 
 	v = Node::root()->bestChild(0);
 
 	makeMove(v->x, v->y);
-	logger("x = %d, y = %d\n", v->x, v->y)
+	logger("move = (%d, %d)   with confidence = %.4f\n", v->x, v->y, 1.0 * v->Q / v->N)
 	printBoard();
-	logger("update_cnt = %d\n", update_cnt)
-	logger("height = %d\n", height)
-	logger("n_node = %d\n", Node::n_node())
+	logger("# iteration = %d\n", n_iter)
+	logger("# node      = %d\n", Node::n_node())
+	logger("tree height = %d\n", height)
 	logger("ucb:\n")
 	for (auto c : Node::root()->children) {
 		logger("(%d, %d)  \t%.4f\n", c->x, c->y, 1.0 * c->Q / c->N)
@@ -121,7 +114,7 @@ void MonteCarlo::updateAbove(Node *v, int delta)
 	while (v) {
 		++v->N;
 		v->Q += delta;
-		delta = inverse(delta);
+		delta = 2 - delta;
 		v = v->parent;
 	}
 }
@@ -129,31 +122,19 @@ void MonteCarlo::updateAbove(Node *v, int delta)
 Node *MonteCarlo::expand(Node *v)
 {
 	for (int y = v->rightmostChild() + 1; y < n_col; ++y) {
-		if (top[y] > 0) {	// available move
+		if (top[y] > 0) {    // available move
 			return v->newChild(top[y] - 1, y);
 		}
 	}
-	return nullptr;	// not expandable
-}
-
-int MonteCarlo::inverse(int delta)
-{
-	return 2 - delta;
+	return nullptr;    // not expandable
 }
 
 void MonteCarlo::makeMove(int x, int y)
 {
-	player = 3 - player;	// switch player
+	player = 3 - player;    // switch player
 	top[y] = x;
 	board[x][y] = player;
-	if (ban.y == y && ban.x == x - 1) --top[y];	// assure no ban point above top
-}
-
-bool MonteCarlo::curIsFinal(int x, int y)
-{
-	return player == 2
-		   ? machineWin(x, y, n_row, n_col, board) || isTie(n_col, top)
-		   : userWin(x, y, n_row, n_col, board) || isTie(n_col, top);
+	if (ban.y == y && ban.x == x - 1) --top[y];    // assure no ban point above top
 }
 
 int MonteCarlo::curWinner(int x, int y)
@@ -167,19 +148,20 @@ int MonteCarlo::simulate(Node *v)
 {
 	height = std::max(height, v->depth);
 	available_cols.clear();
+	available_cols.reserve(12);
 	for (int y = 0; y < n_col; ++y) {
 		if (top[y] > 0) available_cols.push_back(y);
 	}
 	int player_cache = player;
 	int winner, x = v->x, y = v->y, sim_cnt = 0;
 	size_t i;
-	while ((winner = curWinner(x, y)) == -1) {	// simulation continues
+	while ((winner = curWinner(x, y)) == -1) {    // simulation continues
 		++sim_cnt;
 		i = randint(available_cols.size());
-		y = available_cols[i];	// randomly pick a move
+		y = available_cols[i];    // randomly pick a move
 		x = top[y] - 1;
 		makeMove(x, y);
-		if (top[y] == 0) {	// delete an available move
+		if (top[y] == 0) {    // delete an available move
 			available_cols[i] = available_cols.back();
 			available_cols.pop_back();
 		}
@@ -187,7 +169,7 @@ int MonteCarlo::simulate(Node *v)
 //	logger("depth = %d, sim_cnt = %d,  winner = %d\n", v->depth, sim_cnt, winner)
 //	printBoard();
 	player = player_cache;
-	return winner == player ? 2 : (winner == 0 ? 1 : 0);	// win | tie | lose
+	return winner == player ? 2 : (winner == 0 ? 1 : 0);    // win | tie | lose
 }
 
 void MonteCarlo::reset()
