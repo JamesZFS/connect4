@@ -11,7 +11,6 @@
 #include <ctime>
 #include <cstdlib>
 #include <string>
-#include <cassert>
 #include <cstring>
 
 template<typename T>
