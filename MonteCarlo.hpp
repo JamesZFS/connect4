@@ -21,7 +21,7 @@ class MonteCarlo
 	List<int> available_cols;
 
 	static int top_cache[12], board_cache[12][12];
-	static const clock_t CLOCK_LIMIT = (clock_t) (2.5 * CLOCKS_PER_SEC);
+	static const clock_t CLOCK_LIMIT = (clock_t) (2.7 * CLOCKS_PER_SEC);
 
 	Node *expand(Node *v);    // try to expand v's child, if failed, return nullptr
 
@@ -96,14 +96,14 @@ Point MonteCarlo::UCTSearch()
 	v = Node::root()->bestChild(0);
 
 	makeMove(v->x, v->y);
-	logger("move = (%d, %d)   with confidence = %.4f\n", v->x, v->y, 1.0 * v->Q / v->N)
+	logger("move = (%d, %d)  with confidence = %.4f\n", v->x, v->y, 1.0 * v->Q / v->N)
 	printBoard();
 	logger("# iteration = %d\n", n_iter)
 	logger("# node      = %d\n", Node::n_node())
 	logger("tree height = %d\n", height)
 	logger("ucb:\n")
 	for (auto c : Node::root()->children) {
-		logger("(%d, %d)  \t%.4f\n", c->x, c->y, 1.0 * c->Q / c->N)
+		logger("(%2d, %2d)  %.4f\n", c->x, c->y, 1.0 * c->Q / c->N)
 	}
 
 	return {v->x, v->y};

@@ -33,8 +33,10 @@ std::ofstream fout;
 
 #define closeLogger { fout.close(); }
 
-#define logger(...) { sprintf(__buffer__, __VA_ARGS__); fout << __buffer__; fout.flush(); }
+#define logger(...) { sprintf(__buffer__, __VA_ARGS__); fout << __buffer__; }
 
-#define assure(x, y) { if (!(x)) { logger(y); exit(1); } }
+#define debug(...) { sprintf(__buffer__, __VA_ARGS__); fout << __buffer__; fout.flush(); }
+
+#define assure(x, y) { if (!(x)) { debug(y) closeLogger exit(1); } }
 
 #endif //UCT_LIBS_H
