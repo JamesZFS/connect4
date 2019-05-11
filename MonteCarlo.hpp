@@ -21,7 +21,7 @@ class MonteCarlo
 	List<int> available_cols;
 
 	static int top_cache[12], board_cache[12][12];
-	static const clock_t CLOCK_LIMIT = (clock_t) (2.7 * CLOCKS_PER_SEC);
+	static const clock_t CLOCK_LIMIT = (clock_t) (2.6 * CLOCKS_PER_SEC);
 
 	Node *expand(Node *v);    // try to expand v's child, if failed, return nullptr
 
@@ -95,16 +95,16 @@ Point MonteCarlo::UCTSearch()
 
 	v = Node::root()->bestChild(0);
 
-	makeMove(v->x, v->y);
-	logger("move = (%d, %d)  with confidence = %.4f\n", v->x, v->y, 1.0 * v->Q / v->N)
-	printBoard();
-	logger("# iteration = %d\n", n_iter)
-	logger("# node      = %d\n", Node::n_node())
-	logger("tree height = %d\n", height)
-	logger("ucb:\n")
-	for (auto c : Node::root()->children) {
-		logger("(%2d, %2d)  %.4f\n", c->x, c->y, 1.0 * c->Q / c->N)
-	}
+//	makeMove(v->x, v->y);
+//	logger("move = (%d, %d)  with confidence = %.4f\n", v->x, v->y, 1.0 * v->Q / v->N)
+//	printBoard();
+//	logger("# iteration = %d\n", n_iter)
+//	logger("# node      = %d\n", Node::n_node())
+//	logger("tree height = %d\n", height)
+//	logger("ucb:\n")
+//	for (auto c : Node::root()->children) {
+//		logger("(%2d, %2d)  %.4f\n", c->x, c->y, 1.0 * c->Q / c->N)
+//	}
 
 	return {v->x, v->y};
 }
@@ -153,10 +153,9 @@ int MonteCarlo::simulate(Node *v)
 		if (top[y] > 0) available_cols.push_back(y);
 	}
 	int player_cache = player;
-	int winner, x = v->x, y = v->y, sim_cnt = 0;
+	int winner, x = v->x, y = v->y;
 	size_t i;
 	while ((winner = curWinner(x, y)) == -1) {    // simulation continues
-		++sim_cnt;
 		i = randint(available_cols.size());
 		y = available_cols[i];    // randomly pick a move
 		x = top[y] - 1;
@@ -166,8 +165,6 @@ int MonteCarlo::simulate(Node *v)
 			available_cols.pop_back();
 		}
 	}
-//	logger("depth = %d, sim_cnt = %d,  winner = %d\n", v->depth, sim_cnt, winner)
-//	printBoard();
 	player = player_cache;
 	return winner == player ? 2 : (winner == 0 ? 1 : 0);    // win | tie | lose
 }

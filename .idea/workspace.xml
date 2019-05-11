@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Node.hpp" line="60" />
-    <bookmark url="file://$PROJECT_DIR$/MonteCarlo.hpp" line="137" />
-    <bookmark url="file://$PROJECT_DIR$/MonteCarlo.hpp" line="79" />
-    <bookmark url="file://$PROJECT_DIR$/MonteCarlo.hpp" line="77" />
-    <bookmark url="file://$PROJECT_DIR$/MonteCarlo.hpp" line="45" />
-    <bookmark url="file://$PROJECT_DIR$/MonteCarlo.hpp" line="176" />
-    <bookmark url="file://$PROJECT_DIR$/MonteCarlo.hpp" line="23" />
+    <bookmark url="file://$PROJECT_DIR$/Strategy.cpp" line="4" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
@@ -22,8 +16,21 @@
   <component name="ChangeListManager">
     <list default="true" id="7aca6e51-7bed-453c-944b-93e1b6ca36ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Strategy.o" beforeDir="false" afterPath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Strategy.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Judge.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Judge.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Judge.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Strategy.LinkFileList" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Strategy.d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Strategy.dia" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Strategy.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Objects-normal/i386/Strategy_dependency_info.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Strategy-all-non-framework-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Strategy-all-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Strategy-generated-files.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Strategy-own-target-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Strategy-project-headers.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/Strategy.hmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build/Strategy.build/Release/Strategy.build/dgph" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MonteCarlo.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/MonteCarlo.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Strategy.xcodeproj/project.xcworkspace/xcuserdata/james.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/Strategy.xcodeproj/project.xcworkspace/xcuserdata/james.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libs.h" beforeDir="false" afterPath="$PROJECT_DIR$/libs.h" afterDir="false" />
@@ -39,22 +46,24 @@
     <session id="-54637216">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="array" value="1" />
           <entry key="climits" value="1" />
-          <entry key="cpp" value="11" />
+          <entry key="cpp" value="17" />
           <entry key="ctime" value="1" />
           <entry key="gitignore" value="3" />
-          <entry key="h" value="48" />
-          <entry key="hpp" value="12" />
+          <entry key="h" value="55" />
+          <entry key="hpp" value="19" />
           <entry key="move - 0" value="1" />
           <entry key="move - 1" value="2" />
           <entry key="move - 2" value="1" />
@@ -62,57 +71,55 @@
           <entry key="move - 4" value="1" />
           <entry key="move - 5" value="1" />
           <entry key="move - 6" value="1" />
-          <entry key="txt" value="145" />
+          <entry key="py" value="5" />
+          <entry key="txt" value="160" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="2" />
-          <entry key="ObjectiveC" value="74" />
-          <entry key="PLAIN_TEXT" value="154" />
+          <entry key="CMakeLists.txt" value="3" />
+          <entry key="ObjectiveC" value="94" />
+          <entry key="PLAIN_TEXT" value="168" />
+          <entry key="Python" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="7885" />
+          <entry key="cpp" value="8535" />
           <entry key="gitignore" value="29" />
-          <entry key="h" value="4806" />
-          <entry key="hpp" value="7704" />
+          <entry key="h" value="4823" />
+          <entry key="hpp" value="7759" />
           <entry key="mm" value="77" />
-          <entry key="txt" value="12" />
+          <entry key="py" value="61" />
+          <entry key="txt" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="4" />
-          <entry key="ObjectiveC" value="20472" />
-          <entry key="PLAIN_TEXT" value="37" />
+          <entry key="ObjectiveC" value="21194" />
+          <entry key="PLAIN_TEXT" value="39" />
+          <entry key="Python" value="61" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MonteCarlo.hpp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Compete/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="95" column="23" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
-              <folding>
-                <element signature="e#95#113#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Node.hpp">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MonteCarlo.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1048">
-              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-              <folding>
-                <element signature="e#83#100#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="486">
+              <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -120,16 +127,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libs.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-              <folding>
-                <element signature="e#79#98#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -151,9 +171,12 @@
       <find>our_term</find>
       <find>cur_node</find>
       <find>assure</find>
-      <find>top</find>
       <find>depth</find>
       <find>reserve</find>
+      <find>top</find>
+      <find>uct</find>
+      <find>side_win</find>
+      <find>cout</find>
     </findStrings>
     <replaceStrings>
       <replace>UCT_NODE_H</replace>
@@ -181,11 +204,15 @@
         <option value="$PROJECT_DIR$/Point.h" />
         <option value="$PROJECT_DIR$/Strategy.h" />
         <option value="$PROJECT_DIR$/Status.h" />
-        <option value="$PROJECT_DIR$/Strategy.cpp" />
         <option value="$PROJECT_DIR$/logs/round - 1.txt" />
         <option value="$PROJECT_DIR$/Node.hpp" />
         <option value="$PROJECT_DIR$/libs.h" />
+        <option value="$PROJECT_DIR$/Strategy.cpp" />
+        <option value="$PROJECT_DIR$/MC.h" />
+        <option value="$PROJECT_DIR$/logs/move - 4.txt" />
         <option value="$PROJECT_DIR$/MonteCarlo.hpp" />
+        <option value="$PROJECT_DIR$/../Compete/main.py" />
+        <option value="$PROJECT_DIR$/log_visualizer.py" />
       </list>
     </option>
   </component>
@@ -196,10 +223,28 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="y" value="-22" />
-    <option name="width" value="1440" />
-    <option name="height" value="922" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="-255" />
+    <option name="y" value="-1080" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyInterpreterInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -210,73 +255,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Strategy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="Build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Strategy" type="462c0819:PsiDirectoryNode" />
-              <item name="Build" type="462c0819:PsiDirectoryNode" />
-              <item name="Release" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="c++" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="c++" type="462c0819:PsiDirectoryNode" />
-              <item name="8.3.0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Header Search Paths" type="70bed36:NamedLibraryElementNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="c++" type="462c0819:PsiDirectoryNode" />
-              <item name="8.3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="bits" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="UCT" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="UCT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Strategy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -308,6 +303,81 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="Python.log_visualizer">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Strategy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/anaconda3/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Compete" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Compete/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="log_visualizer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Strategy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/anaconda3/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Compete" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/log_visualizer.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Strategy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/anaconda3/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Compete" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Compete/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.log_visualizer" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.log_visualizer" />
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -321,29 +391,31 @@
       <workItem from="1557205963691" duration="35306000" />
       <workItem from="1557313531120" duration="782000" />
       <workItem from="1557316175869" duration="11469000" />
+      <workItem from="1557502836224" duration="6422000" />
+      <workItem from="1557510055061" duration="126000" />
+      <workItem from="1557578881239" duration="5339000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59865000" />
+    <option name="totallyTimeSpent" value="72041000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
-    <editor active="true" />
+    <frame x="-255" y="-1080" width="1920" height="1080" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15522175" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.118743345" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.309901" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32891566" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.27425742" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="CMake" order="12" />
@@ -387,34 +459,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Strategy.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 14.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 7.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 12.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 15.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 3.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 2.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 5.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 6.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 8.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 4.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 11.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 10.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/round - 23.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/vs50/round - 17.txt" />
     <entry file="file://$PROJECT_DIR$/logs/vs50/round - 13.txt" />
     <entry file="file://$PROJECT_DIR$/logs/vs50/round - 18.txt" />
     <entry file="file://$PROJECT_DIR$/logs/vs50/round - 21.txt" />
@@ -432,16 +476,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/logs/round - 4.txt" />
     <entry file="file://$PROJECT_DIR$/logs/round - 6.txt" />
-    <entry file="file://$PROJECT_DIR$/Strategy.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/round - 12.txt" />
     <entry file="file://$PROJECT_DIR$/logs/round - 16.txt" />
     <entry file="file://$PROJECT_DIR$/logs/round - 5.txt" />
@@ -460,35 +494,134 @@
     <entry file="file://$PROJECT_DIR$/logs/move - 142.txt" />
     <entry file="file://$PROJECT_DIR$/logs/move - 231.txt" />
     <entry file="file://$PROJECT_DIR$/logs/move - 165.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/move - 1.txt" />
-    <entry file="file://$PROJECT_DIR$/logs/move - 3.txt" />
     <entry file="file://$PROJECT_DIR$/Node.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1048">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+        <state relative-caret-position="476">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Compete/src/Compete/Compete.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-943" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Compete/src/Compete/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/sys/_types.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="42" column="24" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/sys/_types/_null.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="29" column="18" lean-forward="true" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Strategy-zfs.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Strategy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MC.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="295" column="17" lean-forward="true" selection-start-line="295" selection-start-column="17" selection-end-line="295" selection-end-column="17" />
           <folding>
-            <element signature="e#83#100#0" expanded="true" />
+            <element signature="e#151#166#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Strategy.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 10.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 15.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 11.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 3.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/move - 352.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Compete/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libs.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="43" lean-forward="true" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-          <folding>
-            <element signature="e#79#98#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log_visualizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MonteCarlo.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="95" column="23" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
-          <folding>
-            <element signature="e#95#113#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="486">
+          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
         </state>
       </provider>
     </entry>
